@@ -4,9 +4,10 @@ ultralytics>=8.2.0,<9
 opencv-python-headless>=4.9.0.80
 numpy>=1.26
 pillow>=10.0
-av>=10.0.0
-aiortc>=1.5.0
+av>=12.0.0
+aiortc>=1.8.0
 pandas>=2.2.0
-torch>=2.2,<2.6
-torchvision>=0.17,<0.20
-torchaudio>=2.2,<2.6
+# PyTorch stack for Python 3.13
+torch==2.6.*          # 2.6 pairs with…
+torchvision==0.21.*   # …0.21 on Python >=3.13
+# torchaudio optional

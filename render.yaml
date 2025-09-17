@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: people-analytics
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: LOG_DIR
+        value: /var/data
+      - key: STREAMLIT_SERVER_HEADLESS
+        value: "true"
+      # Optional: add TURN for tough firewalls (comma-separated URLs)
+      # - key: TURN_URLS
+      #   value: turn:your.turn.server:3478,turns:your.turn.server:5349
+      # - key: TURN_USERNAME
+      #   value: youruser
+      # - key: TURN_PASSWORD
+      #   value: yourpass
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 5
